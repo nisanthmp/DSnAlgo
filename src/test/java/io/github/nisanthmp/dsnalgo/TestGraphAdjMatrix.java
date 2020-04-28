@@ -11,9 +11,10 @@ import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GraphAdjMatrixTest {
+class TestGraphAdjMatrix {
     Graph graph;
     Graph graphSimple;
+    Graph graphWeighted;
 
     @BeforeEach
     void setup() throws Exception {
@@ -58,6 +59,13 @@ class GraphAdjMatrixTest {
         graphSimple.addEdge(2, 6);
         graphSimple.addEdge(5, 6);
 
+        graphWeighted = new GraphAdjMatrix(7, true);
+        graphWeighted.addEdge(0, 1, 1);
+        graphWeighted.addEdge(0, 2, 5);
+        graphWeighted.addEdge(1, 2, 2);
+        graphWeighted.addEdge(1, 3, 3);
+        graphWeighted.addEdge(1, 4, 2);
+        graphWeighted.addEdge(5, 6, 4);
     }
 
     @Test
@@ -95,12 +103,17 @@ class GraphAdjMatrixTest {
         graphSimple.mst();
         System.out.println("Complex graph MST");
         graph.mst();
+        System.out.println("Weighted Directed Graph MST");
+        graphWeighted.mst();
     }
 
     @Test
     void testShortestPath() {
         graphSimple.shortestPath(0, 5);
         graphSimple.shortestPath(3, 1);
+        graphWeighted.shortestPath(0, 2);
+        graphWeighted.shortestPath(0, 4);
+        graphWeighted.shortestPath(0, 6);
     }
 
     @Test
