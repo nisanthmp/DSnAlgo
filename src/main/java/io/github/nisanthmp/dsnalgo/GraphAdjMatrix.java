@@ -257,8 +257,7 @@ public class GraphAdjMatrix implements Graph {
             /*if (predecessor != -1) {
                 vertices[vertex].distance = vertices[predecessor].distance + adjMatrix[predecessor][vertex];
             }*/
-            int minDistance = Integer.MAX_VALUE;
-            int minI = -1;
+
             for (int i = 0; i < numVertices; i++) {
                 if (adjMatrix[vertex][i] == 0 || vertices[i].visited) {
                     continue;
@@ -267,6 +266,13 @@ public class GraphAdjMatrix implements Graph {
                 if (vertices[i].distance > newDistance) {
                     vertices[i].distance = newDistance;
                     vertices[i].predecessor = vertex;
+                }
+            }
+            int minDistance = Integer.MAX_VALUE;
+            int minI = -1;
+            for (int i = 0; i < numVertices; i++) {
+                if (vertices[i].visited) {
+                    continue;
                 }
                 if (vertices[i].distance < minDistance) {
                     minDistance = vertices[i].distance;
