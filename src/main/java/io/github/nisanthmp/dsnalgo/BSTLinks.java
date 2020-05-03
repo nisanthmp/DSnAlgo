@@ -85,8 +85,7 @@ public class BSTLinks implements BinarySearchTree {
         }
 
         if(root.element == element) {
-            TreeNode successor = findSuccessor(root);
-            root = successor;
+            root = findSuccessor(root);
             return true;
         }
 

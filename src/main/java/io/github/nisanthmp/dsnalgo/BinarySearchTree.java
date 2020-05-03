@@ -1,10 +1,10 @@
 package io.github.nisanthmp.dsnalgo;
 
 public interface BinarySearchTree {
-    public boolean addElement(Object element);
-    public Object findElement(Object element);
-    public boolean removeElement(Object element);
-    public void inOrderTraversal();
-    public void preOrderTraversal();
-    public void postOrderTraversal();
+    boolean addElement(Object element);
+    Object findElement(Object element);
+    boolean removeElement(Object element);
+    void inOrderTraversal();
+    void preOrderTraversal();
+    void postOrderTraversal();
 }
